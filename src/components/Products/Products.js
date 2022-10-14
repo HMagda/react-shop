@@ -7,16 +7,12 @@ const Products = () => {
 
   return (
     <section>
- 
-       
-  {products.map(product => <Product key={product.id} {...products[product.id]}/>)}
-  
-  {/* <Product {...products[0]} /> */}
-  {/* <Product {...products[0]} /> */}
-
-
+      {products.map(product => <Product key={product.id} {...product}/>)}
+      
+      {/* <Product {...products[0]} />
+      <Product {...products[1]} /> */}
     </section>
   );
 };
-debugger
+
 export default Products;
