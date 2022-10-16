@@ -11,7 +11,7 @@ const ProductForm = (props) => {
 
         <OptionSize setCurrentSize={props.setCurrentSize} currentSize={props.currentSize} {...props.productProps}/>
 
-        <OptionColor setCurrentColor={props.setCurrentColor} prepareColorClassName={props.prepareColorClassName} {...props.productProps}/>
+        <OptionColor setCurrentColor={props.setCurrentColor} currentColor={props.color} prepareColorClassName={props.prepareColorClassName} {...props.productProps}/>
 
         <Button className={styles.button} {...props.productProps} price={props.price} color={props.color} size={props.size}>
             <span className="fa fa-shopping-cart"  />

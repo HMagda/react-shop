@@ -36,8 +36,8 @@ const Product = (props) => {
         </header>
 
         <ProductForm price={getPrice()} productProps={props} color={currentColor} size={currentSize}
-        setCurrentColor={setCurrentColor} prepareColorClassName={prepareColorClassName} 
-        setCurrentSize={setCurrentSize} currentSize={currentSize}
+        setCurrentColor={setCurrentColor} prepareColorClassName={prepareColorClassName}
+        setCurrentSize={setCurrentSize} currentSize={currentSize} 
         />
 
       </div>
