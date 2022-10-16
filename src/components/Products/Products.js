@@ -8,9 +8,6 @@ const Products = () => {
   return (
     <section>
       {products.map(product => <Product key={product.id} {...product}/>)}
-      
-      {/* <Product {...products[0]} />
-      <Product {...products[1]} /> */}
     </section>
   );
 };
