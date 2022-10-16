@@ -1,5 +1,5 @@
 import styles from "./Product.module.scss";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 // import {ReactPropTypes, useState} from "react";
 // import PropTypes from 'prop-types';
 import ProductImage from "../ProductImage/ProductImage";
@@ -13,16 +13,16 @@ const Product = (props) => {
     return styles["color" + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   };
 
- const getPrice = () => {
+const getPrice = useMemo(() => {
+    
+  const found = props.sizes.find(element => {
+    return element.name === currentSize
+  }); 
 
-    const found = props.sizes.find(element => {
-      return element.name === currentSize
-    }); 
+  const priceSum = props.basePrice + found.additionalPrice;
 
-    const priceSum = props.basePrice + found.additionalPrice;
-
-    return priceSum
-  }
+  return priceSum
+}, [currentSize, props.basePrice, props.sizes]);
 
   return (
     <article className={styles.product}>
@@ -32,10 +32,10 @@ const Product = (props) => {
       <div>
         <header>
           <h2 className={styles.name}>{props.title}</h2>
-          <span className={styles.price}>Price: {getPrice()}$</span>
+          <span className={styles.price}>Price: {getPrice}$</span>
         </header>
 
-        <ProductForm price={getPrice()} productProps={props} color={currentColor} size={currentSize}
+        <ProductForm price={getPrice} productProps={props} color={currentColor} size={currentSize}
         setCurrentColor={setCurrentColor} prepareColorClassName={prepareColorClassName}
         setCurrentSize={setCurrentSize} currentSize={currentSize} 
         />
